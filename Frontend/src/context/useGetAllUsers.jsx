@@ -10,10 +10,10 @@ function useGetAllUsers() {
       setLoading(true);
       try {
         const token = Cookies.get('jwt');
-        if (!token) {
-          toast.error('Login again');
-        }
-        console.log('JWT Token:', token); // Debug log
+        // if (!token) {
+        //   toast.error('Login again');
+        // }
+        // console.log('JWT Token:', token); // Debug log
         const response = await axios.get('/api/user/allusers', {
           credentials: 'include',
           headers: {

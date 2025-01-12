@@ -1,9 +1,9 @@
-import React from "react";
-import { useForm } from "react-hook-form";
-import axios from "axios";
-import { useAuth } from "../context/AuthProvider";
-import { Link } from "react-router-dom";
-import toast from "react-hot-toast";
+import React from 'react';
+import { useForm } from 'react-hook-form';
+import axios from 'axios';
+import { useAuth } from '../context/AuthProvider';
+import { Link } from 'react-router-dom';
+import toast from 'react-hot-toast';
 function Signup() {
   const [authUser, setAuthUser] = useAuth();
   const {
@@ -13,11 +13,11 @@ function Signup() {
     formState: { errors },
   } = useForm();
 
-  const password = watch("password", "");
-  const confirmPassword = watch("confirmPassword", "");
+  const password = watch('password', '');
+  const confirmPassword = watch('confirmPassword', '');
 
   const validatePasswordMatch = (value) => {
-    return value === password || "Passwords do not match";
+    return value === password || 'Passwords do not match';
   };
 
   const onSubmit = async (data) => {
@@ -27,19 +27,19 @@ function Signup() {
       password: data.password,
       confirmPassword: data.confirmPassword,
     };
-    // console.log(userInfo);
+
     await axios
-      .post("/api/user/signup", userInfo)
+      .post('/api/user/signup', userInfo)
       .then((response) => {
         if (response.data) {
-          toast.success("Signup successful");
+          toast.success('Signup successful');
         }
-        localStorage.setItem("ChatApp", JSON.stringify(response.data));
+        localStorage.setItem('ChatApp', JSON.stringify(response.data));
         setAuthUser(response.data);
       })
       .catch((error) => {
         if (error.response) {
-          toast.error("Error: " + error.response.data.error);
+          toast.error('Error: ' + error.response.data.error);
         }
       });
   };
@@ -55,10 +55,10 @@ function Signup() {
           </h1>
 
           <h2 className="text-2xl items-center">
-            Create a new{" "}
+            Create a new{' '}
             <span className="text-blue-600 font-semibold">Account</span>
           </h2>
-         
+
           {/* Fullname */}
           <label className="input input-bordered flex items-center gap-2">
             <svg
@@ -73,7 +73,7 @@ function Signup() {
               type="text"
               className="grow"
               placeholder="Fullname"
-              {...register("fullname", { required: true })}
+              {...register('fullname', { required: true })}
             />
           </label>
           {errors.fullname && (
@@ -96,7 +96,7 @@ function Signup() {
               type="email"
               className="grow"
               placeholder="Email"
-              {...register("email", { required: true })}
+              {...register('email', { required: true })}
             />
           </label>
           {errors.email && (
@@ -123,7 +123,7 @@ function Signup() {
               type="password"
               className="grow"
               placeholder="password"
-              {...register("password", { required: true })}
+              {...register('password', { required: true })}
             />
           </label>
           {errors.password && (
@@ -150,7 +150,7 @@ function Signup() {
               type="password"
               className="grow"
               placeholder="confirm password"
-              {...register("confirmPassword", {
+              {...register('confirmPassword', {
                 required: true,
                 validate: validatePasswordMatch,
               })}
@@ -164,22 +164,22 @@ function Signup() {
 
           {/* Text & Button */}
           <div className="flex justify-center">
-              <input
-                type="submit"
-                value="Signup"
-                className="text-white bg-blue-600 cursor-pointer w-full rounded-lg py-2"
-              ></input>
-            </div>
-            <p>
-              Have any Account?{" "}
-              <Link
-                to={"/login"}
-                className="text-blue-500 underline cursor-pointer ml-1"
-              >
-                {" "}
-                Login
-              </Link>
-            </p>
+            <input
+              type="submit"
+              value="Signup"
+              className="text-white bg-blue-600 cursor-pointer w-full rounded-lg py-2"
+            ></input>
+          </div>
+          <p>
+            Have any Account?{' '}
+            <Link
+              to={'/login'}
+              className="text-blue-500 underline cursor-pointer ml-1"
+            >
+              {' '}
+              Login
+            </Link>
+          </p>
         </form>
       </div>
     </>
