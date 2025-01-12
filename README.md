@@ -41,7 +41,7 @@ Before running the application locally, ensure you have the following installed:
    First, clone the repository to your local machine:
 
    ```bash
-   git clone https://github.com/yourusername/chat-app.git
+   git clone https://github.com/sumit-nagrikar/chat-app.git
 
 ### 2. Install Dependencies
 
