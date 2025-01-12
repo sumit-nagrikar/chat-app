@@ -6,7 +6,7 @@ The **Chat Now** application is a real-time chat system designed for seamless co
 
 ## Technologies Used
 
-- **Frontend:** React.js (Vite)
+- **Frontend:** React.js (Tailwind)
 - **Backend:** Node.js (Express.js)
 - **Database:** MongoDB
 - **Authentication:** JWT (JSON Web Token)
@@ -17,14 +17,14 @@ The **Chat Now** application is a real-time chat system designed for seamless co
 
             +-----------------+
             |     Frontend    |
-            |  (React + Vite) |
+            |(React + Tailwind)|
             +-----------------+
                     |
                     |  (1) Send Message (WebSocket)
                     v
             +-------------------+
             |      Backend      |
-            | (Node.js + Express)|
+            |(Node.js + Express)|
             +-------------------+
                     |
                     |  (2) Store Message / Process Logic
@@ -52,9 +52,9 @@ The **Chat Now** application is a real-time chat system designed for seamless co
 
 ## Components
 
-### 1. **Frontend (React with Vite)**
+### 1. **Frontend (React with Tailwind)**
 
-- Built using **React** and **Vite**, the frontend handles the user interface (UI) and interactions, such as displaying messages and allowing users to send and receive messages.
+- Built using **React** and **Tailwind**, the frontend handles the user interface (UI) and interactions, such as displaying messages and allowing users to send and receive messages.
 - The frontend communicates with the backend via **Socket.io** for real-time, two-way communication. When one user sends a message, it is instantly broadcast to the recipient in the chat interface.
 - The frontend also makes HTTP API requests to the backend for operations such as user registration, login, and fetching user data and chat history.
 - The frontend is hosted on **localhost:3000** during local development.
